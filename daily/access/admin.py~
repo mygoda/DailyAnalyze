@@ -1,0 +1,5 @@
+from django.contrib import admin
+from access.models import DailyAccess,DailyPath
+# Register your models here.
+admin.site.register(DailyAccess)
+admin.site.register(DailyPath)
