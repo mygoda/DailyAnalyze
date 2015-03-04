@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>登录方式日志表</title>
+</head>
+
+<body>
+	<a href="http://localhost:8000/index/">首页</a>
+	<hr>
+	<table>
+		<th>{{first_login}} 至 {{latest_login}}.查询用时：{{use_time}}</th>
+		<tr>
+			<td>请求次数：{{count}}</td>
+			<td>正常次数：{{ok_count}}</td>
+			<td>用户数: {{user_count}}</td>
+
+		</tr>
+		<tr>
+			<td>pc次数: {{pc_count}}</td>
+			<td>android次数: {{android_count}}</td>
+			<td>iphone次数: {{iphone_count}}</td>
+				
+		</tr>
+	</table>
+	<hr>
+	
+
+
+
+	<table>
+		<th>详细信息</th>
+		{% for line in searchlist %}
+		<tr>
+			{% if line.access_type == 0%}
+			<td>设备： 电脑</td>
+			{% elif line.access_type == 2 %}
+			<td>设备： 苹果</td>
+			{% else %}
+			<td>设备： 安卓</td>
+			{% endif %}
+			<td>ip: {{line.ip}}</td>
+			<td>时间： {{line.accessTime}}</td>
+			<td>方式： {{line.method}}</td>
+			<td>status: {{line.status}}</td>
+			<td>path: {{line.path}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<hr>
+	<form action='http://localhost:8000/search/' method='get'>
+		
+		<input type="submit" value="详细">
+		<input type="hidden" value="true" name="destails">
+        </form>
+	<HR>
+	
+	<table>
+		<th>其他信息</th>
+		{% for line in searchlist %}
+		<tr>
+			<td>来自于: {{line.refe}}</td>
+			<td>浏览器： {{line.browse}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+</body>
+</html>
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>日志分析</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+   <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" media="screen"
+ href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+</head>
+<nav class="navbar navbar-default" role="navigation">
+<body class="container">
+
+<form role="form" action="http://localhost:8000/search" method="get">
+   <div class="form-group">
+      IP:<input class="form-control input-lg" type="text" 
+          name="ip"   value="">
+   </div>
+
+   <div class="form-group">
+    路径: <input class="form-control" type="text" name="path" value="">
+   </div>
+
+   <div class="form-group">
+   来自: <input class="form-control input-sm" type="text" 
+          name="refe" value="">
+   </div>
+   <div class="form-group">
+   </div>
+   <div class="form-group">
+   方法：<select class="form-control input-lg" name="method">
+          <option value="" selected="selected">无</option>
+         <option value="GET" >GET</option>
+         <option value="POST">POST</option>
+	
+      </select>
+   </div>
+   <div class="form-group">
+      设备：<select class="form-control input-lg" name="access_type">
+        <option value="">无</option>
+         <option value="0">pc</option>
+         <option value="1">android</option>
+         <option value="2">iphone</option>
+      </select>
+   </div>
+   <div class="form-group">
+     状态值：<select class="form-control input-lg" name="status">
+                <option value="">无</option>
+                <option value="200">200</option>
+               <option value="302">302</option>
+               <option value="400">400</option>
+               <option value="404">403</option>
+               <option value="403">404</option>
+               <option value="500">500</option>
+		
+      </select>
+   </div>
+   <div class="form-group">
+     状态值：<select class="form-control input-lg" name="output">
+                <option value="">无</option>
+                <option value="10">10</option>
+               <option value="20">20</option>
+               <option value="30">30</option>
+               <option value="40">40</option>
+            </select>
+   </div>
+
+   <div>
+   <label class="checkbox-inline">
+      <input type="checkbox" id="inlineCheckbox1" value="access" checked="checked"> nginx访问查询
+   </label>
+   <label class="checkbox-inline">
+      <input type="checkbox" id="inlineCheckbox2" value="error" checked="checked"> nginx错误查询
+   </label>
+   <label class="checkbox-inline">
+      <input type="checkbox" id="inlineCheckbox3" value="yewu" checked="checked"> 业务日志
+   </label>
+   </div>
+   <div class="col-xs-6">  <h2 class="page-header">日期选择</h2> 
+      <div id="datetimepicker" class="input-append date">  
+         <input type="text" value="" name="from_time"></input>  
+         <span class="add-on">  
+         <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>  
+         </span>  
+         </div>
+      <HR>  
+      <div id="datetimepicker1" class="input-append date" display="inline">  
+         <input type="text" value="" name="to_time"  readonly="readonly"></input>  
+         <span class="add-on">  
+         <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>  
+           </span>  
+         </div> 
+         <HR>
+
+   <button type="submit" class="btn btn-success btn-lg">   查   询   </button>
+   <!--
+   <div class="row">
+      <div class="col-lg-2">
+         <input type="text" class="form-control" placeholder=".col-lg-2">
+      </div>
+      <div class="col-lg-3">
+         <input type="text" class="form-control" placeholder=".col-lg-3">
+      </div>
+      <div class="col-lg-4">
+         <input type="text" class="form-control" placeholder=".col-lg-4">
+      </div>
+   </div>
+   -->
+
+</form>
+
+<script src="js/jquery-2.0.3.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script type="text/javascript"  
+      src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">  
+      </script>  
+      <script type="text/javascript"  
+      src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">  
+      </script>  
+      <script type="text/javascript"  
+    src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">  
+      </script>  
+<script type="text/javascript">
+      $('#datetimepicker').datetimepicker({  
+        format: 'MM/dd/yyyy hh:mm',  
+        language: 'en',  
+        pickDate: true,  
+        pickTime: true,  
+        hourStep: 1,  
+        minuteStep: 15,  
+        secondStep: 30,  
+        inputMask: true  
+      }); 
+      $('#datetimepicker1').datetimepicker({  
+        format: 'MM/dd/yyyy hh:mm',  
+        language: 'en',  
+        pickDate: true,  
+        pickTime: true,  
+        hourStep: 1,  
+        minuteStep: 15,  
+        secondStep: 30,  
+        inputMask: true  
+      });
+</script>
+</body>
+</nav>
+</html>
+

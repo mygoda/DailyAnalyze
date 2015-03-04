@@ -41,10 +41,11 @@ class searchView(View):
         return start
     #检查输出的记录数，默认的是十条
     def check_output(self,dic):
-        line = 10
-        if dic['output'] != '':
-           line = int(dic['output'])
-           del dic['output']
+        line = 10 
+        if dic.has_key('output'):
+            if dic['output'] != '':
+                line = int(dic['output'])
+                del dic['output']
         return line
     #得到查询参数的字典
     def get_parame_dic(self,requestDic):
@@ -70,6 +71,7 @@ class searchView(View):
         return result
     #检测输出的line参数是否正确
     def check_line(self,line):
+
         if (line == -1) | (line > count) :
             line = count - 1 
         return line
@@ -80,7 +82,8 @@ class searchView(View):
         #得到查询参数的字典
         dic = self.get_parame_dic(request.GET.items())
         #取得输出的记录数
-        line = self.check_output(dic)
+        
+        line = self.check_output(dic)   
         #执行区间查询的情况
         if (request.GET.get('from_time','') != '') & (request.GET.get('to_time','') != ''):
             result = self.time_select(request,dic)
