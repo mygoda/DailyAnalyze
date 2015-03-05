@@ -65,11 +65,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         
-	'HOST':'localhost',
-	'PORT':'3306',
-	'NAME':'my',
-	'USER':'root',
-	'PASSWORD':'',
+        'HOST':'localhost',
+        'PORT':'3306',
+        'NAME':'my',
+        'USER':'root',
+        'PASSWORD':'',
     }
 }
 

@@ -22,7 +22,7 @@ class DailyAccess(models.Model):
 	ip = models.CharField(u"ip地址",max_length = 15)
 	method = models.CharField(u"请求方法",max_length=10)
 	accessTime = models.DateTimeField(u"访问时间",null = True , blank=True)
-	path = models.TextField(u"访问的路径")
+	path = models.TextField(u"访问的路径",null=True)
 	status = models.IntegerField(u"返回的状态码")
 	send_byte = models.IntegerField(u"返回给客户端的字节数" )
 	access_type = models.SmallIntegerField(u"访问方式", choices=MOBILE_CHOICES, default=PC)
