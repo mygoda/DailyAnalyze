@@ -70,7 +70,7 @@ class searchView(View):
         result = DailyAccess.objects.filter(accessTime__range=(start,end)).filter(**dic)
         return result
     #检测输出的line参数是否正确
-    def check_line(self,line):
+    def check_line(self,line,count):
 
         if (line == -1) | (line > count) :
             line = count - 1 
@@ -89,8 +89,8 @@ class searchView(View):
             result = self.time_select(request,dic)
             count = result.count()
             if count > 0 :
-                count_list = self.set_parame(result,2,1,0,200,old)
-                line = self.check_line(line) 
+                count_list = self.set_parame(result,2,1,0,200,old,count)
+                line = self.check_line(line,count) 
                 context = self.get_context(result,line,count,count_list)
                 return render_to_response(t,context)
             else:
@@ -100,8 +100,8 @@ class searchView(View):
             result = self.time_select(request,dic,True)
             count = result.count()
             if count > 0 :
-                count_list = self.set_parame(result,2,1,0,200,old)
-                line = self.check_line(line) 
+                count_list = self.set_parame(result,2,1,0,200,old,count)
+                line = self.check_line(line,count) 
                 context = self.get_context(result,line,count,count_list)
                 return render_to_response(t,context)
             else:
@@ -111,8 +111,8 @@ class searchView(View):
             result = DailyAccess.objects.filter(**dic)
     	    count = result.count()
             if count > 0 :
-                count_list = self.set_parame(result,2,1,0,200,old)
-                line = self.check_line(line)
+                count_list = self.set_parame(result,2,1,0,200,old,count)
+                line = self.check_line(line,count)
                 context = self.get_context(result,line,count,count_list)
                 return render_to_response(t,context)
             else:
@@ -141,7 +141,7 @@ class searchView(View):
         return user_count
     
     #设置相关参数
-    def set_parame(self,result,iphone,android,pc,ok,old):
+    def set_parame(self,result,iphone,android,pc,ok,old,count):
         count_list = []
         iphone_count = result.filter(access_type=iphone).count()
         count_list.append(iphone_count)            

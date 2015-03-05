@@ -8,6 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 import os
+from config import config
 PROJECT_HOME = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
@@ -63,13 +64,12 @@ WSGI_APPLICATION = 'daily.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        
-        'HOST':'localhost',
-        'PORT':'3306',
-        'NAME':'my',
-        'USER':'root',
-        'PASSWORD':'',
+        'ENGINE': config.get("db", "engine"),
+        'NAME': config.get("db", "db_name"),
+        'USER': config.get("db", "username"),
+        'PASSWORD': config.get("db", "password"),
+        'HOST': '',
+        'PORT': '',
     }
 }
 
