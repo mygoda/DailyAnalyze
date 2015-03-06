@@ -20,7 +20,6 @@ class Command(BaseCommand):
     def get_url_list(self, url):
         while True:
             logger.debug('get url list')
-            print 'get url'
             req = urllib2.Request(url)
             response_page = urllib2.urlopen(req)
             assert isinstance(response_page, object)
@@ -39,14 +38,12 @@ class Command(BaseCommand):
 
     def restart_download(self, downlist, dir_name, i=0):
         try:
-            print 'restart'
             logger.debug('restart')
             restart_list = downlist
             for download_url in downlist[i:]:
                 i = self.record_data(download_url, dir_name, i)
-                logger.info(str(i) + ' save_compete')
-                print '%s:save_compete' % i
         except (urllib2.URLError, IOError, urllib2.HTTPError):
+            logger.error("抓取出现问题！")
             time.sleep(1)
             self.restart_download(restart_list,dir_name, i)
             
@@ -54,6 +51,7 @@ class Command(BaseCommand):
     def startDown(self, url, dir_name, i=0):
         while True:
             try:
+                logger.debug("开始抓取！")
                 start_download_list = self.get_url_list(url)
                 count = len(start_download_list)
                 for download_url in start_download_list:
@@ -61,6 +59,7 @@ class Command(BaseCommand):
                 if i == count:
                     break
             except (urllib2.URLError, IOError, urllib2.HTTPError):
+                logger.error("抓取出现问题")
                 self.restart_download(start_download_list, dir_name, i)
 
 
@@ -72,6 +71,7 @@ class Command(BaseCommand):
         with open(local, "wb") as code:
             code.write(data)
             i += 1
+        logger.debug("第 %s 个完成抓取" % i )
         return i
 
 
