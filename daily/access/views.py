@@ -5,22 +5,16 @@ from access.models import DailyAccess,DailyPath
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import Context,Template
 from django.shortcuts import render_to_response 
-import linecache
-import re
+
 import time,datetime
 from django.views.generic import View,TemplateView
 #glob模块是最简单的模块之一，内容非常少。用它可以查找符合特定规则的文件路径名
-import glob
-import os
 # Create your views here.
 import logging 
 logger = logging.getLogger(__name__)
 
 class indexView(TemplateView):
-
     template_name='index.html'
-    #def get(self, request, *args, **kwargs):
-     #   return render_to_response(self.template_name)
      
 class searchView(View):
 
@@ -60,18 +54,17 @@ class searchView(View):
         return now 
 
     def time_select(self,request,dic,singleTime=False):
-        if singleTime == False :
-            end = self.time_formate(dic,to_time)
-        else:
-            end = self.time_formate(dic,to_time,1)
         from_time = request.GET.get('from_time','')
         start = self.time_formate(dic,from_time)
-        to_time = request.GET.get('to_time','')
+        if singleTime == False :
+            to_time = request.GET.get('to_time','')
+            end = self.time_formate(dic,to_time)
+        else:
+            end = self.time_formate(dic,from_time,1)
         result = DailyAccess.objects.filter(accessTime__range=(start,end)).filter(**dic)
         return result
     #检测输出的line参数是否正确
     def check_line(self,line,count):
-
         if (line == -1) | (line > count) :
             line = count - 1 
         return line
@@ -82,7 +75,6 @@ class searchView(View):
         #得到查询参数的字典
         dic = self.get_parame_dic(request.GET.items())
         #取得输出的记录数
-        
         line = self.check_output(dic)   
         #执行区间查询的情况
         if (request.GET.get('from_time','') != '') & (request.GET.get('to_time','') != ''):
