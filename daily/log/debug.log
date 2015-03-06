@@ -1,0 +1,2 @@
+[06/Mar/2015 14:00:39] DEBUG [django.db.backends:79] (0.000) SELECT `access_dailypath`.`id`, `access_dailypath`.`path`, `access_dailypath`.`dailyType` FROM `access_dailypath`; args=()
+[06/Mar/2015 14:00:39] DEBUG [access.management.commands.DjangoSave:22] get url list

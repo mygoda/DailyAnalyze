@@ -13,7 +13,8 @@ from config import config
 PROJECT_HOME = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 LOG_FILE_DIR =  os.path.join(PROJECT_HOME, "log")
-LOG_FILE = LOG_FILE_DIR + '/debug.log'
+LOG_FILE = os.path.join(LOG_FILE_DIR,'debug.log')
+#LOG_FILE = LOG_FILE_DIR + '/debug.log'
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_HOME, "templates"),
@@ -73,57 +74,38 @@ DATABASES = {
         'PORT': '',
     }
 }
-
+# settings.py
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
         },
         'simple': {
             'format': '%(levelname)s %(message)s'
         },
     },
-    
     'handlers': {
-
         'file': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': LOG_FILE,
+            'formatter': 'verbose'
         },
-        'null': {
-            'level': 'DEBUG',
-            'class': 'logging.NullHandler',
-        },
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
-        },
-        'default':
-        {
-            'level' : 'INFO',
-            'class' : 'logging.handlers.RotatingFileHandler',
-            'filename' : LOG_FILE,
-            'formatter':'verbose',
-        }
-  
     },
-    'logger':{
-        'django':{
-            'handlers' : ['console','default'],
-            'level' : 'INFO',
-            'propagate' : False,
-
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
         },
         'access': {
-            'level': 'INFO',
-            'handlers': ['console','default'],
-            },
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
     }
-
 }
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

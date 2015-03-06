@@ -13,7 +13,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import models
 from access.models import DailyPath
 # Get an instance of a logger
-logger = logging.getLogger('django')
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
