@@ -19,18 +19,20 @@ class Command(BaseCommand):
 
     def file_rename(self, path):
         file_list = glob.glob(path + '*.gz')
-        for f in file_list:
-            filename = f.split('/')[-1]
-            name = filename.split('.')
-            if len(name) > 5:
-                new_name = name[0] + '.' + name[1] + '.' + name[2] + '.' + name[4] + '.' + name[3]
-            elif len(name) == 4:
-                new_name = name[0] + '.' + name[2] + '.' + name[1]
-            os.system("gunzip %s" % f)
-            file_without_gz = filename[:-3]
-            os.system("mv %s %s" % (path + file_without_gz, path + new_name))
+        if len(file_list) > 0 : 
+            for f in file_list:
+                filename = f.split('/')[-1]
+                name = filename.split('.')
+                if len(name) > 5:
+                    new_name = name[0] + '.' + name[1] + '.' + name[2] + '.' + name[4] + '.' + name[3]
+                elif len(name) == 4:
+                    new_name = name[0] + '.' + name[2] + '.' + name[1]
+                os.system("gunzip %s" % f)
+                file_without_gz = filename[:-3]
+                os.system("mv %s %s" % (path + file_without_gz, path + new_name))
         list_log = glob.glob(path + '*.log')
-        return list_log
+        if len(list_log) > 0:
+            return list_log
 
     def handle_log(self, log_file):
         ip = r"?P<ip>[\d.]*"
@@ -102,6 +104,7 @@ class Command(BaseCommand):
             else:
                 login_type = 0
         return login_type
+
     def check_path(self,path):
         if path == "":
             path = "empty"
@@ -126,6 +129,7 @@ class Command(BaseCommand):
             self.save_count += 1
 
     def handle(self, *args, **options):
+        print 'do'
         if len(sys.argv) == 2:
             self.handle_log('/var/data/log/')
         else:

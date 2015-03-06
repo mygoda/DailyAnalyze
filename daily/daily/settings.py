@@ -9,9 +9,11 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 import os
 from config import config
+
 PROJECT_HOME = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-
+LOG_FILE_DIR =  os.path.join(PROJECT_HOME, "log")
+LOG_FILE = LOG_FILE_DIR + '/debug.log'
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_HOME, "templates"),
@@ -40,9 +42,8 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-	'access',
-	#'gunicorn', 
-   'django.contrib.staticfiles',
+    'access',  # 'gunicorn',
+    'django.contrib.staticfiles',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -73,7 +74,57 @@ DATABASES = {
     }
 }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    
+    'handlers': {
 
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': LOG_FILE,
+        },
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'default':
+        {
+            'level' : 'INFO',
+            'class' : 'logging.handlers.RotatingFileHandler',
+            'filename' : LOG_FILE,
+            'formatter':'verbose',
+        }
+  
+    },
+    'logger':{
+        'django':{
+            'handlers' : ['console','default'],
+            'level' : 'INFO',
+            'propagate' : False,
+
+        },
+        'access': {
+            'level': 'INFO',
+            'handlers': ['console','default'],
+            },
+    }
+
+}
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 

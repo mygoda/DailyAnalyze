@@ -13,13 +13,14 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import models
 from access.models import DailyPath
 # Get an instance of a logger
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('django')
 
 
 class Command(BaseCommand):
     def get_url_list(self, url):
         while True:
-            logger.info('get url list')
+            logger.debug('get url list')
+            print 'get url'
             req = urllib2.Request(url)
             response_page = urllib2.urlopen(req)
             assert isinstance(response_page, object)
@@ -38,26 +39,29 @@ class Command(BaseCommand):
 
     def restart_download(self, downlist, dir_name, i=0):
         try:
-            logger.info('restart')
+            print 'restart'
+            logger.debug('restart')
+            restart_list = downlist
             for download_url in downlist[i:]:
                 i = self.record_data(download_url, dir_name, i)
                 logger.info(str(i) + ' save_compete')
+                print '%s:save_compete' % i
         except (urllib2.URLError, IOError, urllib2.HTTPError):
             time.sleep(1)
-            self.restart_download(downlist, i)
-
+            self.restart_download(restart_list,dir_name, i)
+            
 
     def startDown(self, url, dir_name, i=0):
         while True:
             try:
-                download_list = self.get_url_list(url)
-                count = len(download_list)
-                for download_url in download_list:
+                start_download_list = self.get_url_list(url)
+                count = len(start_download_list)
+                for download_url in start_download_list:
                     i = self.record_data(download_url, dir_name, i)
                 if i == count:
                     break
             except (urllib2.URLError, IOError, urllib2.HTTPError):
-                self.restart_download(download_list, dir_name, i)
+                self.restart_download(start_download_list, dir_name, i)
 
 
     def record_data(self, download_url, dir_name, i=0):
@@ -75,7 +79,7 @@ class Command(BaseCommand):
         socket.setdefaulttimeout(5)
         serverList = DailyPath.objects.all()
         for server in serverList:
-            savePath = '/var/data/log'
+            savePath = '/var/data/log/'
             if os.path.exists(savePath) == False:
                 os.mkdir(savePath)
             self.startDown(server.path, savePath)
