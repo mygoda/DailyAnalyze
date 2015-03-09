@@ -22,3 +22,199 @@
 [09/Mar/2015 05:31:17] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 05:31:17' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 05:31:17')
 [09/Mar/2015 05:31:17] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
 [09/Mar/2015 05:31:17] DEBUG [django.db.backends:79] (0.000) SELECT `access_dailypath`.`id`, `access_dailypath`.`path`, `access_dailypath`.`dailyType`, `access_dailypath`.`SaveYesNo` FROM `access_dailypath` WHERE `access_dailypath`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:04:45] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:04:44' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:04:44')
+[09/Mar/2015 06:04:45] DEBUG [django.db.backends:79] (0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:04:45] DEBUG [django.db.backends:79] (0.001) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON ( `django_admin_log`.`user_id` = `auth_user`.`id` ) LEFT OUTER JOIN `django_content_type` ON ( `django_admin_log`.`content_type_id` = `django_content_type`.`id` ) WHERE `django_admin_log`.`user_id` = 1  ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,)
+[09/Mar/2015 06:04:47] DEBUG [django.db.backends:79] (0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:04:47' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:04:47')
+[09/Mar/2015 06:04:47] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:04:47] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess`; args=()
+[09/Mar/2015 06:04:47] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` ORDER BY `dailyAccess`.`id` DESC LIMIT 100; args=()
+[09/Mar/2015 06:04:47] DEBUG [django.db.backends:79] (0.010) SELECT DISTINCT `dailyAccess`.`ip` FROM `dailyAccess` ORDER BY `dailyAccess`.`ip` ASC; args=()
+[09/Mar/2015 06:04:47] DEBUG [django.db.backends:79] (0.004) SELECT DISTINCT `dailyAccess`.`method` FROM `dailyAccess` ORDER BY `dailyAccess`.`method` ASC; args=()
+[09/Mar/2015 06:04:47] DEBUG [django.db.backends:79] (0.013) SELECT DISTINCT `dailyAccess`.`path` FROM `dailyAccess` ORDER BY `dailyAccess`.`path` ASC; args=()
+[09/Mar/2015 06:04:47] DEBUG [django.db.backends:79] (0.002) SELECT DISTINCT `dailyAccess`.`status` FROM `dailyAccess` ORDER BY `dailyAccess`.`status` ASC; args=()
+[09/Mar/2015 06:04:47] DEBUG [django.db.backends:79] (0.007) SELECT DISTINCT `dailyAccess`.`browse` FROM `dailyAccess` ORDER BY `dailyAccess`.`browse` ASC; args=()
+[09/Mar/2015 06:04:47] DEBUG [django.db.backends:79] (0.003) SELECT DISTINCT `dailyAccess`.`refe` FROM `dailyAccess` ORDER BY `dailyAccess`.`refe` ASC; args=()
+[09/Mar/2015 06:04:48] DEBUG [django.db.backends:79] (0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:04:48' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:04:48')
+[09/Mar/2015 06:04:48] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:04:49] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:04:49' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:04:49')
+[09/Mar/2015 06:04:49] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:04:49] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` WHERE `dailyAccess`.`id` = 4785 ; args=(4785,)
+[09/Mar/2015 06:04:49] DEBUG [django.db.backends:79] (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'dailyaccess'  AND `django_content_type`.`app_label` = 'access' ); args=('dailyaccess', u'access')
+[09/Mar/2015 06:04:49] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:04:49' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:04:49')
+[09/Mar/2015 06:04:49] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:04:57] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:04:57' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:04:57')
+[09/Mar/2015 06:04:57] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:04:57] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` WHERE `dailyAccess`.`id` = 4785 ; args=(4785,)
+[09/Mar/2015 06:04:57] DEBUG [django.db.backends:79] (0.001) UPDATE `dailyAccess` SET `ip` = '120.204.200.21', `method` = 'GET', `accessTime` = '2015-02-26 05:22:43', `path` = '/', `status` = 200, `send_byte` = 133, `access_type` = 0, `browse` = 'DNSPod-Monitor/2.0', `refe` = '-', `access_record` = '120.204.200.21 - - [26/Feb/2015:05:22:43 -0500] \"GET / HTTP/1.1\" 200 133 \"-\" \"DNSPod-Monitor/2.0\"\r\n' WHERE `dailyAccess`.`id` = 4785 ; args=(u'120.204.200.21', u'GET', u'2015-02-26 05:22:43', u'/', 200, 133, 0, u'DNSPod-Monitor/2.0', u'-', u'120.204.200.21 - - [26/Feb/2015:05:22:43 -0500] "GET / HTTP/1.1" 200 133 "-" "DNSPod-Monitor/2.0"\r\n', 4785)
+[09/Mar/2015 06:04:57] DEBUG [django.db.backends:79] (0.000) INSERT INTO `django_admin_log` (`action_time`, `user_id`, `content_type_id`, `object_id`, `object_repr`, `action_flag`, `change_message`) VALUES ('2015-03-09 06:04:57', 1, 7, '4785', 'DailyAccess object', 2, 'Changed access_record.'); args=[u'2015-03-09 06:04:57', 1, 7, u'4785', u'DailyAccess object', 2, u'Changed access_record.']
+[09/Mar/2015 06:04:57] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:04:57' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:04:57')
+[09/Mar/2015 06:04:57] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:04:57] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:04:57' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:04:57')
+[09/Mar/2015 06:04:57] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:05:02] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:05:02' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:05:02')
+[09/Mar/2015 06:05:02] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:05:02] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:05:02' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:05:02')
+[09/Mar/2015 06:05:02] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:05:06] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:05:06' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:05:06')
+[09/Mar/2015 06:05:06] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:05:09] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:05:09' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:05:09')
+[09/Mar/2015 06:05:09] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:05:09] DEBUG [django.db.backends:79] (0.001) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON ( `django_admin_log`.`user_id` = `auth_user`.`id` ) LEFT OUTER JOIN `django_content_type` ON ( `django_admin_log`.`content_type_id` = `django_content_type`.`id` ) WHERE `django_admin_log`.`user_id` = 1  ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,)
+[09/Mar/2015 06:05:49] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:05:49' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:05:49')
+[09/Mar/2015 06:05:49] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:05:49] DEBUG [django.db.backends:79] (0.001) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON ( `django_admin_log`.`user_id` = `auth_user`.`id` ) LEFT OUTER JOIN `django_content_type` ON ( `django_admin_log`.`content_type_id` = `django_content_type`.`id` ) WHERE `django_admin_log`.`user_id` = 1  ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,)
+[09/Mar/2015 06:05:51] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:05:51' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:05:51')
+[09/Mar/2015 06:05:51] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:05:51] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(*) FROM `dailyAccess`; args=()
+[09/Mar/2015 06:05:51] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` ORDER BY `dailyAccess`.`id` DESC LIMIT 100; args=()
+[09/Mar/2015 06:05:51] DEBUG [django.db.backends:79] (0.009) SELECT DISTINCT `dailyAccess`.`ip` FROM `dailyAccess` ORDER BY `dailyAccess`.`ip` ASC; args=()
+[09/Mar/2015 06:05:51] DEBUG [django.db.backends:79] (0.003) SELECT DISTINCT `dailyAccess`.`method` FROM `dailyAccess` ORDER BY `dailyAccess`.`method` ASC; args=()
+[09/Mar/2015 06:05:51] DEBUG [django.db.backends:79] (0.014) SELECT DISTINCT `dailyAccess`.`path` FROM `dailyAccess` ORDER BY `dailyAccess`.`path` ASC; args=()
+[09/Mar/2015 06:05:51] DEBUG [django.db.backends:79] (0.002) SELECT DISTINCT `dailyAccess`.`status` FROM `dailyAccess` ORDER BY `dailyAccess`.`status` ASC; args=()
+[09/Mar/2015 06:05:51] DEBUG [django.db.backends:79] (0.008) SELECT DISTINCT `dailyAccess`.`browse` FROM `dailyAccess` ORDER BY `dailyAccess`.`browse` ASC; args=()
+[09/Mar/2015 06:05:51] DEBUG [django.db.backends:79] (0.003) SELECT DISTINCT `dailyAccess`.`refe` FROM `dailyAccess` ORDER BY `dailyAccess`.`refe` ASC; args=()
+[09/Mar/2015 06:05:52] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:05:52' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:05:52')
+[09/Mar/2015 06:05:52] DEBUG [django.db.backends:79] (0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:05:53] DEBUG [django.db.backends:79] (0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:05:53' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:05:53')
+[09/Mar/2015 06:05:53] DEBUG [django.db.backends:79] (0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:05:53] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` WHERE `dailyAccess`.`id` = 4785 ; args=(4785,)
+[09/Mar/2015 06:05:53] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'dailyaccess'  AND `django_content_type`.`app_label` = 'access' ); args=('dailyaccess', u'access')
+[09/Mar/2015 06:05:53] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:05:53' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:05:53')
+[09/Mar/2015 06:05:53] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:06:04] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:06:04' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:06:04')
+[09/Mar/2015 06:06:04] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:06:04] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` WHERE `dailyAccess`.`id` = 4785 ; args=(4785,)
+[09/Mar/2015 06:06:04] DEBUG [django.db.backends:79] (0.000) UPDATE `dailyAccess` SET `ip` = '120.204.200.21', `method` = 'GET', `accessTime` = '2015-02-26 05:22:43', `path` = '/', `status` = 200, `send_byte` = 133, `access_type` = 0, `browse` = 'DNSPod-Monitor/2.0', `refe` = '-', `access_record` = '120.204.200.21 - - [26/Feb/2015:05:22:43 -0500] \"GET / HTTP/1.1\" 200 133 \"-\" \"DNSPod-Monitor/2.0\"\r\n' WHERE `dailyAccess`.`id` = 4785 ; args=(u'120.204.200.21', u'GET', u'2015-02-26 05:22:43', u'/', 200, 133, 0, u'DNSPod-Monitor/2.0', u'-', u'120.204.200.21 - - [26/Feb/2015:05:22:43 -0500] "GET / HTTP/1.1" 200 133 "-" "DNSPod-Monitor/2.0"\r\n', 4785)
+[09/Mar/2015 06:06:04] DEBUG [django.db.backends:79] (0.001) INSERT INTO `django_admin_log` (`action_time`, `user_id`, `content_type_id`, `object_id`, `object_repr`, `action_flag`, `change_message`) VALUES ('2015-03-09 06:06:04', 1, 7, '4785', 'DailyAccess object', 2, 'No fields changed.'); args=[u'2015-03-09 06:06:04', 1, 7, u'4785', u'DailyAccess object', 2, u'No fields changed.']
+[09/Mar/2015 06:06:04] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:06:04' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:06:04')
+[09/Mar/2015 06:06:04] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:06:04] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` WHERE `dailyAccess`.`id` = 4785 ; args=(4785,)
+[09/Mar/2015 06:06:04] DEBUG [django.db.backends:79] (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'c8nefzhyo802oh6udue43lmrrhorkf1n'  AND `django_session`.`expire_date` > '2015-03-09 06:06:04' ); args=('c8nefzhyo802oh6udue43lmrrhorkf1n', u'2015-03-09 06:06:04')
+[09/Mar/2015 06:06:04] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+[09/Mar/2015 06:09:06] ERROR [django.request:226] Internal Server Error: /admin/access/dailyaccess/4785/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/contrib/admin/options.py", line 430, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/contrib/admin/sites.py", line 192, in inner
+    if not self.has_permission(request):
+  File "/Library/Python/2.7/site-packages/django/contrib/admin/sites.py", line 143, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/Library/Python/2.7/site-packages/django/utils/functional.py", line 213, in inner
+    self._setup()
+  File "/Library/Python/2.7/site-packages/django/utils/functional.py", line 298, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Library/Python/2.7/site-packages/django/contrib/auth/middleware.py", line 18, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Library/Python/2.7/site-packages/django/contrib/auth/middleware.py", line 10, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Library/Python/2.7/site-packages/django/contrib/auth/__init__.py", line 133, in get_user
+    user_id = request.session[SESSION_KEY]
+  File "/Library/Python/2.7/site-packages/django/contrib/sessions/backends/base.py", line 47, in __getitem__
+    return self._session[key]
+  File "/Library/Python/2.7/site-packages/django/contrib/sessions/backends/base.py", line 173, in _get_session
+    self._session_cache = self.load()
+  File "/Library/Python/2.7/site-packages/django/contrib/sessions/backends/db.py", line 20, in load
+    expire_date__gt=timezone.now()
+  File "/Library/Python/2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 780, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Library/Python/2.7/site-packages/django/db/backends/__init__.py", line 157, in cursor
+    cursor = self.make_debug_cursor(self._cursor())
+  File "/Library/Python/2.7/site-packages/django/db/backends/__init__.py", line 129, in _cursor
+    self.ensure_connection()
+  File "/Library/Python/2.7/site-packages/django/db/backends/__init__.py", line 124, in ensure_connection
+    self.connect()
+  File "/Library/Python/2.7/site-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/Library/Python/2.7/site-packages/django/db/backends/__init__.py", line 124, in ensure_connection
+    self.connect()
+  File "/Library/Python/2.7/site-packages/django/db/backends/__init__.py", line 112, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/mysql/base.py", line 435, in get_new_connection
+    conn = Database.connect(**conn_params)
+  File "/Library/Python/2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+[09/Mar/2015 06:09:25] ERROR [django.request:226] Internal Server Error: /admin/access/dailyaccess/4785/
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Python/2.7/site-packages/django/contrib/admin/options.py", line 430, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/contrib/admin/sites.py", line 192, in inner
+    if not self.has_permission(request):
+  File "/Library/Python/2.7/site-packages/django/contrib/admin/sites.py", line 143, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/Library/Python/2.7/site-packages/django/utils/functional.py", line 213, in inner
+    self._setup()
+  File "/Library/Python/2.7/site-packages/django/utils/functional.py", line 298, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Library/Python/2.7/site-packages/django/contrib/auth/middleware.py", line 18, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Library/Python/2.7/site-packages/django/contrib/auth/middleware.py", line 10, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Library/Python/2.7/site-packages/django/contrib/auth/__init__.py", line 133, in get_user
+    user_id = request.session[SESSION_KEY]
+  File "/Library/Python/2.7/site-packages/django/contrib/sessions/backends/base.py", line 47, in __getitem__
+    return self._session[key]
+  File "/Library/Python/2.7/site-packages/django/contrib/sessions/backends/base.py", line 173, in _get_session
+    self._session_cache = self.load()
+  File "/Library/Python/2.7/site-packages/django/contrib/sessions/backends/db.py", line 20, in load
+    expire_date__gt=timezone.now()
+  File "/Library/Python/2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 780, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Library/Python/2.7/site-packages/django/db/backends/__init__.py", line 157, in cursor
+    cursor = self.make_debug_cursor(self._cursor())
+  File "/Library/Python/2.7/site-packages/django/db/backends/__init__.py", line 129, in _cursor
+    self.ensure_connection()
+  File "/Library/Python/2.7/site-packages/django/db/backends/__init__.py", line 124, in ensure_connection
+    self.connect()
+  File "/Library/Python/2.7/site-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/Library/Python/2.7/site-packages/django/db/backends/__init__.py", line 124, in ensure_connection
+    self.connect()
+  File "/Library/Python/2.7/site-packages/django/db/backends/__init__.py", line 112, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/mysql/base.py", line 435, in get_new_connection
+    conn = Database.connect(**conn_params)
+  File "/Library/Python/2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
