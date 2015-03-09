@@ -77,12 +77,15 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         socket.setdefaulttimeout(5)
-        serverList = DailyPath.objects.all()
+        serverList = DailyPath.objects.filter(SaveYesNo=0)
         for server in serverList:
             savePath = '/var/data/log/'
             if os.path.exists(savePath) == False:
                 os.mkdir(savePath)
             self.startDown(server.path, savePath)
 
+        serverList.SaveYesNo = 1 
+        serverList.save()
+        logger.debug("抓取成功！")
 
 

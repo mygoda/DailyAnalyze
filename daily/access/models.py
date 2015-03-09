@@ -3,6 +3,7 @@ from django.db import models
 
 from django.contrib import admin
 # Create your models here.
+#from admin import DailyPathAdmin
 
 class DailyAccess(models.Model):
 	class Meta:
@@ -42,15 +43,15 @@ class DailyPath(models.Model):
 	   (ELSE_DAILY,'其他日志')
 	    	
 	)
-	#SAVE_NO = 0
-	#SAVE_YES = 1
-	#SAVE_CHOICES = (
-	#   (SAVE_NO,'未抓取'),
-	#   (SAVE_YES,'已抓取')
-	#)
+	SAVE_NO = 0
+	SAVE_YES = 1
+	SAVE_CHOICES = (
+	   (SAVE_NO,'未抓取'),
+	   (SAVE_YES,'已抓取')
+	)
 	path = models.CharField(u'日志地址',max_length=255)
 	dailyType = models.SmallIntegerField(u"日志种类", choices=DAILY_CHOICES, default=NGINX_ACCESS)
+	SaveYesNo = models.SmallIntegerField(u'是否抓取',choices=SAVE_CHOICES,default=SAVE_NO)
 	
-admin.site.register(DailyAccess)
-admin.site.register(DailyPath)	
+	
 
