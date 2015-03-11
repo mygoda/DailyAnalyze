@@ -43,15 +43,83 @@
 			<td>方式： {{line.method}}</td>
 			<td>status: {{line.status}}</td>
 			<td>path: {{line.path}}</td>
+			
 		</tr>
 		{% endfor %}
 	</table>
 	<hr>
-	<form action='/search' method='get'>
-		
-		<input type="submit" value="详细">
-		<input type="hidden" value="true" name="destails">
-        </form>
+
+	<h4>统计相关</h4>
+	<table>
+		<th>ip访问次数排名</th>
+		{% for line in  order_ip%}
+		<tr>
+			<td>ip: {{line.ip}}</td>
+			{% if line.access_type == 0%}
+			<td>设备： 电脑</td>
+			{% elif line.access_type == 2 %}
+			<td>设备： 苹果</td>
+			{% else %}
+			<td>设备： 安卓</td>
+			{% endif %}
+			<td>次数：{{line.count}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	
+	<HR>
+		<table>
+		<th>路径访问次数排名</th>
+		{% for line in  order_path%}
+		<tr>
+			<td>访问路径: {{line.path}}</td>
+			{% if line.access_type == 0%}
+			<td>设备： 电脑</td>
+			{% elif line.access_type == 2 %}
+			<td>设备： 苹果</td>
+			{% else %}
+			<td>设备： 安卓</td>
+			{% endif %}
+			<td>次数：{{line.count}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<HR>
+	<table>
+		<th>设备访问次数排名</th>
+		{% for line in  order_accessType%}
+		<tr>
+			{% if line.access_type == 0%}
+			<td>设备： 电脑</td>
+			{% elif line.access_type == 2 %}
+			<td>设备： 苹果</td>
+			{% else %}
+			<td>设备： 安卓</td>
+			{% endif %}
+			<td>ip： {{line.ip}}</td>
+			<td>次数：{{line.count}}</td>
+		</tr>
+		{% endfor %}
+
+	</table>
+	<HR>
+	<!--
+	<table>
+		<th>来源访问次数排名</th>
+		{% for line in  order_refe%}
+		<tr>
+			<td>来自于: {{line.refe}}</td>
+			{% if line.access_type == 0%}
+			<td>设备： 电脑</td>
+			{% elif line.access_type == 2 %}
+			<td>设备： 苹果</td>
+			{% else %}
+			<td>设备： 安卓</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</table>
+	-->
 	<HR>
 	
 	<table>

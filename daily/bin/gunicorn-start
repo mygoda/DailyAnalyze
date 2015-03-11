@@ -1,8 +1,8 @@
 #!/bin/bash
  
 NAME="daily"                                  # Name of the application
-DJANGODIR=~/Downloads/daily/             # Django project directory
-SOCKFILE=~/Downloads/daily/run/gunicorn.sock  # we will communicte using this unix socket
+DJANGODIR= /Users/xu/.virtualenvs/dailyServer/daily             # Django project directory
+SOCKFILE=/Users/xu/.virtualenvs/dailyServer/daily/run/gunicorn.sock  # we will communicte using this unix socket
 #USER=chiyuan                                        # the user to run as
 #GROUP=webapps                                     # the group to run as
 NUM_WORKERS=3                                     # how many worker processes should Gunicorn spawn
