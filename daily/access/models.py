@@ -1,6 +1,6 @@
 #coding=utf-8
 from django.db import models
-
+import time,datetime
 from django.contrib import admin
 # Create your models here.
 #from admin import DailyPathAdmin
@@ -31,6 +31,10 @@ class DailyAccess(models.Model):
 	refe = models.CharField(u"from",max_length=252)
 	access_record = models.TextField(u'完整记录信息')
 
+	@property
+	def show_formate_time(self,formate='%Y-%m-%d %H:%M:%S'):
+		self.accessTime = self.accessTime.strftime(formate)
+		return self.accessTime
 
 class DailyPath(models.Model):
 	
