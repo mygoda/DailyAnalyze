@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from access.views import indexView,searchView
 from django.contrib import admin
 from django.conf import settings
+import debug_toolbar
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -17,6 +18,6 @@ if settings.DEBUG:
     urlpatterns += patterns('',
     #(r'^(?P<path>.*)$', 'django.views.static.serve', {'document_root': STATIC_ROOT, 'show_indexes': True}),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
-
+    (r'^debug/', include(debug_toolbar.urls)),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
 )
