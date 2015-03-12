@@ -27,9 +27,10 @@ class DailyAccess(models.Model):
 	status = models.IntegerField(u"返回的状态码")
 	send_byte = models.IntegerField(u"返回给客户端的字节数" )
 	access_type = models.SmallIntegerField(u"访问方式", choices=MOBILE_CHOICES, default=PC)
-	browse = models.CharField(u"浏览器",max_length=20)
+	browse = models.CharField(u"浏览器",max_length=255)
 	refe = models.CharField(u"from",max_length=252)
 	access_record = models.TextField(u'完整记录信息')
+	appName = models.CharField(u'点名',max_length = 50)
 
 	@property
 	def show_formate_time(self,formate='%Y-%m-%d %H:%M:%S'):
@@ -57,5 +58,15 @@ class DailyPath(models.Model):
 	dailyType = models.SmallIntegerField(u"日志种类", choices=DAILY_CHOICES, default=NGINX_ACCESS)
 	SaveYesNo = models.SmallIntegerField(u'是否抓取',choices=SAVE_CHOICES,default=SAVE_NO)
 	
-	
+
+class DailyAppCount(models.Model):
+	class Meta:
+		db_table = "dailyAppCount"
+		verbose_name_plural = verbose_name = "应用访问次数"
+	name = models.CharField(u'应用名',max_length=50)
+	count = models.IntegerField(u'访问次数')
+	@property
+	def add_count(self):
+		self.count += 1	
+		
 

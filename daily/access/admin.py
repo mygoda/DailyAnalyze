@@ -1,5 +1,5 @@
 from django.contrib import admin
-from access.models import DailyAccess,DailyPath
+from access.models import DailyAccess,DailyPath,DailyAppCount
 # Register your models here.
 
 
@@ -8,7 +8,7 @@ class DailyAccessAdmin(admin.ModelAdmin):
                     'browse','refe',]
     
 	search_fields = ['method', 'access_type','ip']
-	list_filter = ['ip', 'method', 'path','status','accessTime','access_type','browse','refe']
+	list_filter = ['ip', 'method', 'appName','path','status','accessTime','access_type','browse','refe']
 #admin.site.register(DailyAccess, DailyAccessAdmin)
 class DailyPathAdmin(admin.ModelAdmin):
 	list_display = ['path','dailyType']
@@ -16,3 +16,5 @@ class DailyPathAdmin(admin.ModelAdmin):
 
 admin.site.register(DailyAccess,DailyAccessAdmin)
 admin.site.register(DailyPath,DailyPathAdmin)
+
+

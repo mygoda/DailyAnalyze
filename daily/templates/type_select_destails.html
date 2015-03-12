@@ -50,18 +50,24 @@
 	<hr>
 
 	<h4>统计相关</h4>
+
+	<table>
+		<th>店名访问次数排名</th>
+		{% for line in  order_app_name%}
+		<tr>
+			<td>店名： {{line.appName}}</td>
+			<td>次数：{{line.count}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	
+	<HR>
+
 	<table>
 		<th>ip访问次数排名</th>
 		{% for line in  order_ip%}
 		<tr>
 			<td>ip: {{line.ip}}</td>
-			{% if line.access_type == 0%}
-			<td>设备： 电脑</td>
-			{% elif line.access_type == 2 %}
-			<td>设备： 苹果</td>
-			{% else %}
-			<td>设备： 安卓</td>
-			{% endif %}
 			<td>次数：{{line.count}}</td>
 		</tr>
 		{% endfor %}
@@ -73,13 +79,6 @@
 		{% for line in  order_path%}
 		<tr>
 			<td>访问路径: {{line.path}}</td>
-			{% if line.access_type == 0%}
-			<td>设备： 电脑</td>
-			{% elif line.access_type == 2 %}
-			<td>设备： 苹果</td>
-			{% else %}
-			<td>设备： 安卓</td>
-			{% endif %}
 			<td>次数：{{line.count}}</td>
 		</tr>
 		{% endfor %}
@@ -96,32 +95,38 @@
 			{% else %}
 			<td>设备： 安卓</td>
 			{% endif %}
-			<td>ip： {{line.ip}}</td>
 			<td>次数：{{line.count}}</td>
 		</tr>
 		{% endfor %}
-
+		<tr>
+			<td>苹果访问比例：{{iphone_percent}}%</td>
+			<td>安卓访问比例： {{android_percent}}%</td>
+			<td>pc访问比例： {{pc_percent}}%</td>
+		</tr>
 	</table>
 	<HR>
-	<!--
+	
 	<table>
 		<th>来源访问次数排名</th>
 		{% for line in  order_refe%}
 		<tr>
 			<td>来自于: {{line.refe}}</td>
-			{% if line.access_type == 0%}
-			<td>设备： 电脑</td>
-			{% elif line.access_type == 2 %}
-			<td>设备： 苹果</td>
-			{% else %}
-			<td>设备： 安卓</td>
-			{% endif %}
+			<td>次数： {{line.count}}</td>
 		</tr>
 		{% endfor %}
 	</table>
-	-->
+
 	<HR>
-	
+	<table>
+		<th>浏览器访问次数排名</th>
+		{% for line in order_browse %}
+		<tr>
+			<td>来自于: {{line.browse}}</td>
+			<td>次数： {{line.count}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<!--
 	<table>
 		<th>其他信息</th>
 		{% for line in searchlist %}
@@ -131,6 +136,7 @@
 		</tr>
 		{% endfor %}
 	</table>
+	-->
 
 </body>
 </html>

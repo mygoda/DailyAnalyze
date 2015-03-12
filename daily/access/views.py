@@ -127,19 +127,26 @@ class searchView(View):
     #得到统计相关的数据
     def get_order_result(self,result):
         order_ip = self.order_result(result,'ip')
-        order_accessType = self.order_result(result,'access_type')
-        order_refe = self.order_result(result,'refe')
         order_path = self.order_result(result,'path')
+        order_refe = self.order_result(result,'refe')
+        order_accessType = self.order_result(result,'access_type')
+        order_app_name = self.order_result(result,'appName')
+        order_browse = self.order_result(result,'browse')
         context = {
             "order_ip" :order_ip,
             "order_path" : order_path,
             "order_refe" :order_refe,
             "order_accessType" : order_accessType,
+            "order_app_name" : order_app_name,
+            "order_browse" : order_browse,
         }
         return context
 
     #得到在页面显示的参数列表
     def get_context(self,result,line,count,count_list):
+        iphone_percent = int(count_list[0]) * 100 / count
+        android_percent = int(count_list[1]) * 100 / count
+        pc_percent = int(count_list[2]) * 100 / count
         context = {
             "searchlist" : result[:line],
             "count" : count,
@@ -151,7 +158,10 @@ class searchView(View):
             "ok_count" : count_list[3],
             "first_login" : count_list[4],
             "latest_login" : count_list[5],
-            "line" : line 
+            "line" : line ,
+            "iphone_percent": iphone_percent,
+            "android_percent":android_percent,
+            "pc_percent" : pc_percent
         }
         #取得统计相关的字典
         order_context = self.get_order_result(result)
@@ -159,17 +169,19 @@ class searchView(View):
         union_context = dict(context, **order_context)
         return union_context
 
+
+
     #获取记录中不同的用户个数
     def get_user(self,result):
         user_count = result.values('ip').distinct().count()
         return user_count
 
     #统计排序相关的处理
-    def order_result(self,result,fields,number=5):
-        if len(result) < 5 :
+    def order_result(self,result,fields,number=10):
+        if len(result) < 10 :
             number = len(result)
         #执行分组统计
-        result = result.values('refe','ip','path','access_type').annotate(count=Count(fields))[:number]
+        result = result.values(fields).annotate(count=Count(fields)).order_by('-count')[:number]
         return result
 
      #设置相关参数

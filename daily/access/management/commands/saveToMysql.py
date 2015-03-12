@@ -7,7 +7,7 @@ import re
 import time, datetime
 # glob模块是最简单的模块之一，内容非常少。用它可以查找符合特定规则的文件路径名
 import glob
-from access.models import DailyAccess
+from access.models import DailyAccess,DailyAppCount
 import logging
 
 logger = logging.getLogger(__name__)
@@ -23,16 +23,19 @@ class Command(BaseCommand):
             for f in file_list:
                 filename = f.split('/')[-1]
                 name = filename.split('.')
-                if len(name) > 5:
+                if len(name) > 4:
                     new_name = name[0] + '.' + name[1] + '.' + name[2] + '.' + name[4] + '.' + name[3]
                 elif len(name) == 4:
                     new_name = name[0] + '.' + name[2] + '.' + name[1]
                 os.system("gunzip %s" % f)
                 file_without_gz = filename[:-3]
-                os.system("mv %s %s" % (path + file_without_gz, path + new_name))
+                os.system("mv %s %s" % (path + file_without_gz,path + new_name))
         list_log = glob.glob(path + '*.log')
         if len(list_log) > 0:
             return list_log
+
+   
+
 
     def handle_log(self, log_file):
         ip = r"?P<ip>[\d.]*"
@@ -75,19 +78,25 @@ class Command(BaseCommand):
         for file_one in file_list:
             self.file_save(file_one, p, userSystems)
 
-
+    #修改增加app应用的访问次数
     def file_save(self, file_name, p, userSystems):
         f = open(file_name, 'r')
         for line in f.readlines():
-            self.record_data(p, line, userSystems)
+            self.record_data(p, line, userSystems,file_name)
         f.close()
 
     def check_browser(self, parame):
         browser = parame[10].split(' ')[0]
-        if len(browser) > 20:
-            browser = browser[:19]
-        return browser
-
+        if re.search(r'Macintosh', str(parame[10])) != None:
+            browse = 'Mozilla/5.0 on Macintosh'
+        elif re.search(r'Windows NT',str(parame[10])) != None:
+            browse = browser + 'windows NT'
+        else :
+            browse = parame[10].split('(')[0]
+            if browse.startswith("Mozilla") == False:
+                browse = parame[10]
+        return browse
+        
     def check_refe(self, parame):
         refe = parame[9]
         if len(refe) > 250:
@@ -110,8 +119,9 @@ class Command(BaseCommand):
             path = "empty"
         return path
 
-    def record_data(self, p, line, userSystems):
+    def record_data(self, p, line, userSystems,file_name):
         m = p.match(line)
+        appName = file_name.split('.')[1]
         if m != None:
             parame = m.groups()
             date_time = parame[3] + '-' + parame[2] + '-' + parame[1] + ' ' + parame[4]
@@ -124,8 +134,9 @@ class Command(BaseCommand):
             pathCheck = self.check_path(parame[6])
             daily = DailyAccess(ip=parame[0], status=parame[7], send_byte=parame[8], method=method,
                                 accessTime=date_time_formate, path=pathCheck, refe=refe, access_type=login_type,
-                                access_record=line, browse=browser)
+                                access_record=line, browse=browser,appName=appName)
             daily.save()
+
             self.save_count += 1
 
     def handle(self, *args, **options):
