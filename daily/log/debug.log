@@ -2239,3 +2239,254 @@ NameError: global name 'show_time' is not defined
 [11/Mar/2015 11:01:32] DEBUG [django.db.backends:79] (0.039) SELECT `dailyAccess`.`path`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`path` ORDER BY NULL LIMIT 5; args=()
 [11/Mar/2015 11:01:32] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
 [11/Mar/2015 11:01:32] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`refe`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:22:37] WARNING [django.request:145] Not Found: /index/css/bootstrap.min.css
+[12/Mar/2015 01:22:37] WARNING [django.request:145] Not Found: /index/js/bootstrap.min.js
+[12/Mar/2015 01:22:37] WARNING [django.request:145] Not Found: /index/js/jquery-2.0.3.min.js
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.011) SELECT COUNT(*) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.005) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 2 ; args=(2,)
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 1 ; args=(1,)
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 0 ; args=(0,)
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`status` = 200 ; args=(200,)
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1 OFFSET 4784; args=()
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1; args=()
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.005) SELECT COUNT(DISTINCT `dailyAccess`.`ip`) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.120) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess`; args=()
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.007) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.042) SELECT `dailyAccess`.`path`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`path` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.002) SELECT `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:22:40] DEBUG [django.db.backends:79] (0.005) SELECT `dailyAccess`.`refe`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 2 ; args=(2,)
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 1 ; args=(1,)
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 0 ; args=(0,)
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`status` = 200 ; args=(200,)
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.004) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1 OFFSET 4784; args=()
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1; args=()
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.003) SELECT COUNT(DISTINCT `dailyAccess`.`ip`) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.112) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess`; args=()
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.008) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.042) SELECT `dailyAccess`.`path`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`path` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.002) SELECT `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:23:33] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`refe`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:40:38] DEBUG [django.db.backends:79] (0.010) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `ip__count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 21; args=()
+[12/Mar/2015 01:41:10] DEBUG [django.db.backends:79] (0.008) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `ip__count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 1; args=()
+[12/Mar/2015 01:46:44] DEBUG [django.db.backends:79] (0.041) SELECT `dailyAccess`.`ip`, `dailyAccess`.`access_type`, `dailyAccess`.`refe`, `dailyAccess`.`path`, COUNT(`dailyAccess`.`ip`) AS `ip__count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip`, `dailyAccess`.`access_type`, `dailyAccess`.`refe`, `dailyAccess`.`path` ORDER BY NULL LIMIT 21; args=()
+[12/Mar/2015 01:47:11] DEBUG [django.db.backends:79] (0.039) SELECT `dailyAccess`.`ip`, `dailyAccess`.`access_type`, `dailyAccess`.`refe`, `dailyAccess`.`path`, COUNT(`dailyAccess`.`ip`) AS `ip__count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip`, `dailyAccess`.`access_type`, `dailyAccess`.`refe`, `dailyAccess`.`path` ORDER BY NULL LIMIT 1; args=()
+[12/Mar/2015 01:48:02] DEBUG [django.db.backends:79] (0.040) SELECT `dailyAccess`.`ip`, `dailyAccess`.`access_type`, `dailyAccess`.`refe`, `dailyAccess`.`path`, COUNT(`dailyAccess`.`ip`) AS `ip__count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip`, `dailyAccess`.`access_type`, `dailyAccess`.`refe`, `dailyAccess`.`path` ORDER BY NULL LIMIT 1; args=()
+[12/Mar/2015 01:48:23] DEBUG [django.db.backends:79] (0.046) SELECT `dailyAccess`.`ip`, `dailyAccess`.`access_type`, `dailyAccess`.`refe`, `dailyAccess`.`path`, COUNT(`dailyAccess`.`ip`) AS `ip__count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip`, `dailyAccess`.`access_type`, `dailyAccess`.`refe`, `dailyAccess`.`path` ORDER BY NULL LIMIT 1; args=()
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 2 ; args=(2,)
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 1 ; args=(1,)
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 0 ; args=(0,)
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`status` = 200 ; args=(200,)
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1 OFFSET 4784; args=()
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1; args=()
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(DISTINCT `dailyAccess`.`ip`) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.127) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess`; args=()
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.008) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.037) SELECT `dailyAccess`.`path`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`path` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.002) SELECT `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:48:36] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`refe`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 2 ; args=(2,)
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 1 ; args=(1,)
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 0 ; args=(0,)
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`status` = 200 ; args=(200,)
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.006) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1 OFFSET 4784; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.003) SELECT COUNT(DISTINCT `dailyAccess`.`ip`) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.128) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess`; args=()
+[12/Mar/2015 01:49:31] ERROR [django.request:226] Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/xu/Downloads/daily/access/views.py", line 123, in get
+    return render_to_response(t,context)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/defaulttags.py", line 806, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/defaulttags.py", line 941, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/defaulttags.py", line 874, in __init__
+    super(TemplateIfParser, self).__init__(*args, **kwargs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/smartif.py", line 163, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/smartif.py", line 174, in translate_token
+    return self.create_var(token)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/defaulttags.py", line 877, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 360, in compile_filter
+    return FilterExpression(token, self)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 577, in __init__
+    "from '%s'" % (token[upto:], token))
+TemplateSyntaxError: Could not parse the remainder: '['access_type']' from 'line['access_type']'
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.007) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`path`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`path` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`refe`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.002) SELECT `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.008) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.037) SELECT `dailyAccess`.`path`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`path` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`refe`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.002) SELECT `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.007) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.040) SELECT `dailyAccess`.`path`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`path` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`refe`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.002) SELECT `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.008) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`path`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`path` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`refe`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.002) SELECT `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.007) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.037) SELECT `dailyAccess`.`path`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`path` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`refe`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.002) SELECT `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:31] DEBUG [django.db.backends:79] (0.007) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:32] DEBUG [django.db.backends:79] (0.040) SELECT `dailyAccess`.`path`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`path` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:32] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`refe`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:32] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:49:32] DEBUG [django.db.backends:79] (0.002) SELECT `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:32] DEBUG [django.db.backends:79] (0.007) SELECT `dailyAccess`.`ip`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`ip` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:32] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`path`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`path` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:32] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`refe`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:49:32] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 2 ; args=(2,)
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 1 ; args=(1,)
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 0 ; args=(0,)
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`status` = 200 ; args=(200,)
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1 OFFSET 4784; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(DISTINCT `dailyAccess`.`ip`) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.121) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess`; args=()
+[12/Mar/2015 01:50:48] ERROR [django.request:226] Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/views/generic/base.py", line 87, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/xu/Downloads/daily/access/views.py", line 123, in get
+    return render_to_response(t,context)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/defaulttags.py", line 806, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/defaulttags.py", line 941, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/defaulttags.py", line 874, in __init__
+    super(TemplateIfParser, self).__init__(*args, **kwargs)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/smartif.py", line 163, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/smartif.py", line 174, in translate_token
+    return self.create_var(token)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/defaulttags.py", line 877, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 360, in compile_filter
+    return FilterExpression(token, self)
+  File "/Users/xu/.virtualenvs/dailyServer/lib/python2.7/site-packages/django/template/base.py", line 577, in __init__
+    "from '%s'" % (token[upto:], token))
+TemplateSyntaxError: Could not parse the remainder: '['access_type']' from 'line['access_type']'
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.045) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.045) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.041) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.040) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.042) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.043) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.040) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.041) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.040) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:48] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.040) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.039) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.041) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.037) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.044) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.041) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.037) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.041) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.037) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.039) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.038) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:49] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 2 ; args=(2,)
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 1 ; args=(1,)
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.001) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`access_type` = 0 ; args=(0,)
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(*) FROM `dailyAccess` WHERE `dailyAccess`.`status` = 200 ; args=(200,)
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.003) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1 OFFSET 4784; args=()
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.000) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 1; args=()
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.002) SELECT COUNT(DISTINCT `dailyAccess`.`ip`) FROM `dailyAccess`; args=()
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.125) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess`; args=()
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.001) SELECT `dailyAccess`.`id`, `dailyAccess`.`ip`, `dailyAccess`.`method`, `dailyAccess`.`accessTime`, `dailyAccess`.`path`, `dailyAccess`.`status`, `dailyAccess`.`send_byte`, `dailyAccess`.`access_type`, `dailyAccess`.`browse`, `dailyAccess`.`refe`, `dailyAccess`.`access_record` FROM `dailyAccess` LIMIT 10; args=()
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.037) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`ip`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.041) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`path`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.043) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`access_type`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()
+[12/Mar/2015 01:50:56] DEBUG [django.db.backends:79] (0.041) SELECT `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type`, COUNT(`dailyAccess`.`refe`) AS `count` FROM `dailyAccess` GROUP BY `dailyAccess`.`refe`, `dailyAccess`.`ip`, `dailyAccess`.`path`, `dailyAccess`.`access_type` ORDER BY NULL LIMIT 5; args=()

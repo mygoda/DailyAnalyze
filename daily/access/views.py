@@ -169,7 +169,7 @@ class searchView(View):
         if len(result) < 5 :
             number = len(result)
         #执行分组统计
-        result = result.values(fields).annotate(count=Count(fields))[:number]
+        result = result.values('refe','ip','path','access_type').annotate(count=Count(fields))[:number]
         return result
 
      #设置相关参数
