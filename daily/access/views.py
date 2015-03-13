@@ -14,6 +14,63 @@ from django.views.generic import View,TemplateView
 import logging 
 logger = logging.getLogger(__name__)
 
+class dataView(View):
+    
+    def order_result(self,result,fields,number=10):
+        #执行分组统计
+        exclude_filter_result = self.exclude_filter(result)
+        result = exclude_filter_result.values(fields).annotate(count=Count(fields)).order_by('-count')[:number]
+        return result
+    
+    def exclude_filter(self,result):
+        parame = result.exclude(path__startswith='/stat').exclude(path__startswith='/api').exclude(path__startswith='/settings')
+        return parame  
+
+    def get_order_result(self,result):
+        order_ip = self.order_result(result,'ip')
+        order_path = self.order_result(result,'path')
+        order_refe = self.order_result(result,'refe')
+        order_accessType = self.order_result(result,'access_type')
+        order_app_name = self.order_result(result,'appName')
+        order_browse = self.order_result(result,'browse')
+        count = result.count()
+        count_list = self.get_accessType_percent(result)
+        iphone_percent = int(count_list[0]) * 100 / count
+        android_percent = int(count_list[1]) * 100 / count
+        pc_percent = int(count_list[2]) * 100 / count
+        context = {
+            "order_ip" :order_ip,
+            "order_path" : order_path,
+            "order_refe" :order_refe,
+            "order_accessType" : order_accessType,
+            "order_app_name" : order_app_name,
+            "order_browse" : order_browse,
+            "iphone_percent": iphone_percent,
+            "android_percent":android_percent,
+            "pc_percent" : pc_percent,
+        }
+        return context
+
+    def get_accessType_percent(self,result):
+        percent_list = []
+        iphone_count = result.filter(access_type=2).count()
+        percent_list.append(iphone_count)
+        android_count = result.filter(access_type=1).count()
+        percent_list.append(android_count)
+        pc_count = result.filter(access_type=0).count()
+        percent_list.append(pc_count)
+        return percent_list
+
+    def get(self,request,*args,**kwargs):
+
+        result = DailyAccess.objects.all()
+        filter_result = self.exclude_filter(result)
+        context = self.get_order_result(filter_result)
+        t = "data.html"
+        return render_to_response(t,context)
+
+
+
 class indexView(TemplateView):
     template_name='index.html'
      
@@ -121,6 +178,8 @@ class searchView(View):
                 return render_to_response('error.html')
         #其他没有时间的查询
         else:
+            if len(dic) < 1 :
+                return HttpResponseRedirect('/destails/')
             result = self.select_No_Time_query(dic)
             count = result.count()
             if count > 0 :

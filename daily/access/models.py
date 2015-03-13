@@ -28,9 +28,10 @@ class DailyAccess(models.Model):
 	send_byte = models.IntegerField(u"返回给客户端的字节数" )
 	access_type = models.SmallIntegerField(u"访问方式", choices=MOBILE_CHOICES, default=PC)
 	browse = models.CharField(u"浏览器",max_length=255)
-	refe = models.CharField(u"from",max_length=252)
-	access_record = models.TextField(u'完整记录信息')
 	appName = models.CharField(u'点名',max_length = 50)
+	refe = models.TextField(u"来源")
+	access_record = models.TextField(u'完整记录信息')
+	
 
 	@property
 	def show_formate_time(self,formate='%Y-%m-%d %H:%M:%S'):

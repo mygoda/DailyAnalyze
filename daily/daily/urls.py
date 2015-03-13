@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from access.views import indexView,searchView
+from access.views import indexView,searchView,dataView
 from django.contrib import admin
 from django.conf import settings
 import debug_toolbar
@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^search/$',searchView.as_view()),
     url(r'^index/$',indexView.as_view()),
+    url(r'^destails/$',dataView.as_view()),
     #url(r'^readAccess/$','access.views.handle_log'),
     url(r'^admin/', include(admin.site.urls)),
 )

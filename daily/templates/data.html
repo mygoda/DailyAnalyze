@@ -1,52 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>登录方式日志表</title>
+	<title></title>
 </head>
-
 <body>
-	<a href="/index/">首页</a>
-	<hr>
-	<table>
-		<th>{{first_login}} 至 {{latest_login}}.查询用时：{{use_time}}</th>
-		<tr>
-			<td>请求次数：{{count}}</td>
-			<td>正常次数：{{ok_count}}</td>
-			<td>用户数: {{user_count}}</td>
-
-		</tr>
-		<tr>
-			<td>pc次数: {{pc_count}}</td>
-			<td>android次数: {{android_count}}</td>
-			<td>iphone次数: {{iphone_count}}</td>
-				
-		</tr>
-	</table>
-	<hr>
-	
-	<table>
-		<th>详细信息</th>
-		{% for line in searchlist %}
-		<tr>
-			{% if line.access_type == 0%}
-			<td>设备： 电脑</td>
-			{% elif line.access_type == 2 %}
-			<td>设备： 苹果</td>
-			{% else %}
-			<td>设备： 安卓</td>
-			{% endif %}
-			<td>ip: {{line.ip}}</td>
-			<td>时间： {{line.show_formate_time}}</td>
-			<td>方式： {{line.method}}</td>
-			<td>status: {{line.status}}</td>
-			<td>path: {{line.path}}</td>
-			
-		</tr>
-		{% endfor %}
-	</table>
-	<hr>
-
-	<h4>统计相关</h4>
+<a href="/index/">首页</a>
+<h4>统计相关</h4>
+<h5>无任何筛选为您展示统计页面</h5>
 
 	<table>
 		<th>店名访问次数排名</th>
@@ -124,6 +84,16 @@
 		{% endfor %}
 	</table>
 	
+	<table>
+		<th>其他信息</th>
+		{% for line in searchlist %}
+		<tr>
+			<td>来自于: {{line.refe}}</td>
+			<td>浏览器： {{line.browse}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	
+
 </body>
 </html>
-

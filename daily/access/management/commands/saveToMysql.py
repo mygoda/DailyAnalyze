@@ -9,7 +9,7 @@ import time, datetime
 import glob
 from access.models import DailyAccess,DailyAppCount
 import logging
-
+from django.utils import timezone
 logger = logging.getLogger(__name__)
 
 
@@ -30,6 +30,7 @@ class Command(BaseCommand):
                 os.system("gunzip %s" % f)
                 file_without_gz = filename[:-3]
                 os.system("mv %s %s" % (path + file_without_gz,path + new_name))
+                list_log = glob.glob(path + '*.log')
         else:
             list_log = glob.glob(path + '*.log')
         if len(list_log) > 0:
@@ -88,21 +89,13 @@ class Command(BaseCommand):
         os.system("rm -f %s " % file_name)
 
     def check_browser(self, parame):
-        browser = parame[10].split(' ')[0]
-        if re.search(r'Macintosh', str(parame[10])) != None:
-            browse = 'Mozilla/5.0 on Macintosh'
-        elif re.search(r'Windows NT',str(parame[10])) != None:
-            browse = browser + 'windows NT'
-        else :
-            browse = parame[10].split('(')[0]
-            if browse.startswith("Mozilla") == False:
-                browse = parame[10]
+        browse = parame[10]
+        if len(browse) > 255:
+            return browse[:254]    
         return browse
         
     def check_refe(self, parame):
         refe = parame[9]
-        if len(refe) > 250:
-            refe = refe[:250]
         return refe
 
     def check_logType(self, os_list):
@@ -130,6 +123,10 @@ class Command(BaseCommand):
             method = 'GET'
         return method
 
+    def formate_utc_time(self,datetime):
+        date_utc = datetime.utcnow().replace(tzinfo=utc)
+        return date_utc
+
     def record_data(self, p, line, userSystems,file_name):
         m = p.match(line)
         appName = file_name.split('.')[1]
@@ -137,6 +134,8 @@ class Command(BaseCommand):
             parame = m.groups()
             date_time = parame[3] + '-' + parame[2] + '-' + parame[1] + ' ' + parame[4]
             date_time_formate = datetime.datetime.strptime(date_time, '%Y-%b-%d %H:%M:%S')
+            #修改时区问题
+            date_utc_time = timezone.make_aware(date_time_formate, timezone.get_current_timezone())
             method = self.check_method(parame[5])
             browser = self.check_browser(parame)
             os_list = userSystems.findall(parame[10])
@@ -144,7 +143,7 @@ class Command(BaseCommand):
             login_type = self.check_logType(os_list)
             pathCheck = self.check_path(parame[6])
             daily = DailyAccess(ip=parame[0], status=parame[7], send_byte=parame[8], method=method,
-                                accessTime=date_time_formate, path=pathCheck, refe=refe, access_type=login_type,
+                                accessTime=date_utc_time, path=pathCheck, refe=refe, access_type=login_type,
                                 access_record=line, browse=browser,appName=appName)
             daily.save()
 
