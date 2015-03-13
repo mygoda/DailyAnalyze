@@ -19,6 +19,10 @@ class indexView(TemplateView):
      
 class searchView(View):
 
+    #根据年月日来格式化时间
+    def time_formate_by_number(self,year,month,day):
+        formateTime = datetime.date(year,month,day)
+        return formateTime
 
     #格式化时间
     def time_formate(self,dic,time,tag=0):
@@ -53,7 +57,7 @@ class searchView(View):
             end = self.time_formate(dic,to_time)
         else:
             end = self.time_formate(dic,from_time,1)
-        result = DailyAccess.objects.filter(accessTime__range=(start,end)).filter(**dic)
+        result = DailyAccess.objects.filter(accessTime__range=(start,end)).filter(**dic).defer("access_record", "send_byte")
         return result
 
     #检查输出的记录数，默认的是十条
@@ -96,7 +100,7 @@ class searchView(View):
             if count > 0 :
                 count_list = self.set_parame(result,2,1,0,200,old,count)
                 line = self.check_line(line,count) 
-                context = self.get_context(result,line,count,count_list)
+                context = self.get_context(result,line,self.count,count_list)
                 return render_to_response(t,context)
             else:
                 return render_to_response('error.html')
@@ -113,8 +117,13 @@ class searchView(View):
                 return render_to_response('error.html')
         #其他没有时间的查询
         else:
-            result = DailyAccess.objects.filter(**dic)
-    	    count = result.count()
+            #now = time.strftime('%Y-%m-%d',time.localtime(time.time()))
+            #result = DailyAccess.objects.filter(accessTime__lte=now)
+            #if len(dic)<2:
+            #    result = DailyAccess.objects.all()
+            #else:
+            result = self.select_No_Time_query(dic)
+            count = result.count()
             if count > 0 :
                 count_list = self.set_parame(result,2,1,0,200,old,count)
                 line = self.check_line(line,count)
@@ -124,6 +133,23 @@ class searchView(View):
             else:
                 return render_to_response('error.html')
 
+    #在没有时间条件的时候，会默认查询表中记录最近的30天的查询
+    def select_No_Time_query(self,dic):
+
+        latest_time = DailyAccess.objects.latest('accessTime')
+        latest_time_year = latest_time.accessTime.year
+        latest_time_month = latest_time.accessTime.month
+        latest_time_day = latest_time.accessTime.day
+        first_time_month = latest_time_month - 1 
+        first_time_year = latest_time_year
+        if first_time_month == 0 :
+            first_time_month = 12
+            first_time_year = latest_time_year - 1 
+        start = self.time_formate_by_number(first_time_year,first_time_month,latest_time_day)
+        end = self.time_formate_by_number(latest_time_year,latest_time_month,latest_time_day)
+        result = DailyAccess.objects.filter(accessTime__range=(start,end)).filter(**dic).defer("access_record", "send_byte")
+        return result
+    
     #得到统计相关的数据
     def get_order_result(self,result):
         order_ip = self.order_result(result,'ip')
@@ -178,8 +204,9 @@ class searchView(View):
 
     #统计排序相关的处理
     def order_result(self,result,fields,number=10):
-        if len(result) < 10 :
-            number = len(result)
+        length = result.count()
+        if length < 10 :
+            number = length
         #执行分组统计
         result = result.values(fields).annotate(count=Count(fields)).order_by('-count')[:number]
         return result
