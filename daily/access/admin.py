@@ -4,11 +4,11 @@ from access.models import DailyAccess,DailyPath,DailyAppCount
 
 
 class DailyAccessAdmin(admin.ModelAdmin):
-	list_display = ['ip', 'method', 'path', 'status', 'access_type', 'accessTime',
+	list_display = ['ip', 'appName', 'path', 'status', 'access_type', 'accessTime',
                     'browse','refe',]
     
 	search_fields = ['method', 'access_type','ip']
-	list_filter = ['ip', 'method', 'appName','path','status','accessTime','access_type','browse','refe']
+	list_filter = ['appName','path','accessTime','access_type','browse','refe']
 #admin.site.register(DailyAccess, DailyAccessAdmin)
 class DailyPathAdmin(admin.ModelAdmin):
 	list_display = ['path','dailyType']

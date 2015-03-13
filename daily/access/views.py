@@ -57,9 +57,13 @@ class searchView(View):
             end = self.time_formate(dic,to_time)
         else:
             end = self.time_formate(dic,from_time,1)
-        result = DailyAccess.objects.filter(accessTime__range=(start,end)).filter(**dic).defer("access_record", "send_byte")
-        return result
+        result = DailyAccess.objects.filter(accessTime__range=(start,end)).filter(**dic).filter(status=200).defer("access_record", "send_byte")
+        time_select_exclude_result = self.exclude_filter(result)
+        return time_select_exclude_result
 
+    def exclude_filter(self,result):
+        parame = result.exclude(path__startswith='/stat').exclude(path__startswith='/api').exclude(path__startswith='/settings')
+        return parame  
     #检查输出的记录数，默认的是十条
     def check_output(self,dic):
         line = 10 
@@ -117,11 +121,6 @@ class searchView(View):
                 return render_to_response('error.html')
         #其他没有时间的查询
         else:
-            #now = time.strftime('%Y-%m-%d',time.localtime(time.time()))
-            #result = DailyAccess.objects.filter(accessTime__lte=now)
-            #if len(dic)<2:
-            #    result = DailyAccess.objects.all()
-            #else:
             result = self.select_No_Time_query(dic)
             count = result.count()
             if count > 0 :
@@ -135,7 +134,6 @@ class searchView(View):
 
     #在没有时间条件的时候，会默认查询表中记录最近的30天的查询
     def select_No_Time_query(self,dic):
-
         latest_time = DailyAccess.objects.latest('accessTime')
         latest_time_year = latest_time.accessTime.year
         latest_time_month = latest_time.accessTime.month
@@ -147,8 +145,9 @@ class searchView(View):
             first_time_year = latest_time_year - 1 
         start = self.time_formate_by_number(first_time_year,first_time_month,latest_time_day)
         end = self.time_formate_by_number(latest_time_year,latest_time_month,latest_time_day)
-        result = DailyAccess.objects.filter(accessTime__range=(start,end)).filter(**dic).defer("access_record", "send_byte")
-        return result
+        result = DailyAccess.objects.filter(accessTime__range=(start,end)).filter(**dic).filter(status=200).defer("access_record", "send_byte")
+        exclude_result = self.exclude_filter(result)
+        return exclude_result
     
     #得到统计相关的数据
     def get_order_result(self,result):
@@ -204,11 +203,9 @@ class searchView(View):
 
     #统计排序相关的处理
     def order_result(self,result,fields,number=10):
-        length = result.count()
-        if length < 10 :
-            number = length
         #执行分组统计
-        result = result.values(fields).annotate(count=Count(fields)).order_by('-count')[:number]
+        exclude_filter_result = self.exclude_filter(result)
+        result = exclude_filter_result.values(fields).annotate(count=Count(fields)).order_by('-count')[:number]
         return result
 
      #设置相关参数

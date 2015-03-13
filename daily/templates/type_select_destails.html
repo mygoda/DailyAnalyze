@@ -29,7 +29,7 @@
 
 	<table>
 		<th>详细信息</th>
-		{% for line in searchlist %}
+		{% for line in search_list %}
 		<tr>
 			{% if line.access_type == 0%}
 			<td>设备： 电脑</td>
@@ -126,7 +126,7 @@
 		</tr>
 		{% endfor %}
 	</table>
-	<!--
+	
 	<table>
 		<th>其他信息</th>
 		{% for line in searchlist %}
@@ -136,7 +136,8 @@
 		</tr>
 		{% endfor %}
 	</table>
-	-->
+	
+
 
 </body>
 </html>

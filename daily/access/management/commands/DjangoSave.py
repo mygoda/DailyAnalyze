@@ -83,9 +83,8 @@ class Command(BaseCommand):
             if os.path.exists(savePath) == False:
                 os.mkdir(savePath)
             self.startDown(server.path, savePath)
-
         serverList.SaveYesNo = 1 
-        serverList.save()
+        serverList[0].save()
         logger.debug("抓取成功！")
 
 

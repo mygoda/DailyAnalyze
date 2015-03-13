@@ -30,7 +30,8 @@ class Command(BaseCommand):
                 os.system("gunzip %s" % f)
                 file_without_gz = filename[:-3]
                 os.system("mv %s %s" % (path + file_without_gz,path + new_name))
-        list_log = glob.glob(path + '*.log')
+        else:
+            list_log = glob.glob(path + '*.log')
         if len(list_log) > 0:
             return list_log
 
@@ -84,6 +85,7 @@ class Command(BaseCommand):
         for line in f.readlines():
             self.record_data(p, line, userSystems,file_name)
         f.close()
+        os.system("rm -f %s " % file_name)
 
     def check_browser(self, parame):
         browser = parame[10].split(' ')[0]
@@ -118,6 +120,15 @@ class Command(BaseCommand):
         if path == "":
             path = "empty"
         return path
+    
+    def check_method(self,method):
+        if re.search(r'OPTION',str(method)) != None:
+            method = 'OPT'
+        elif re.search(r'POST',str(method)) != None:
+            method = 'POST'
+        else:
+            method = 'GET'
+        return method
 
     def record_data(self, p, line, userSystems,file_name):
         m = p.match(line)
@@ -126,7 +137,7 @@ class Command(BaseCommand):
             parame = m.groups()
             date_time = parame[3] + '-' + parame[2] + '-' + parame[1] + ' ' + parame[4]
             date_time_formate = datetime.datetime.strptime(date_time, '%Y-%b-%d %H:%M:%S')
-            method = parame[5][:3]
+            method = self.check_method(parame[5])
             browser = self.check_browser(parame)
             os_list = userSystems.findall(parame[10])
             refe = self.check_refe(parame)
