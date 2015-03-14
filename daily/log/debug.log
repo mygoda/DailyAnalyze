@@ -1,0 +1,159 @@
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) SHOW TABLES; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.008) CREATE TABLE `django_admin_log` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `action_time` datetime NOT NULL,
+    `user_id` integer NOT NULL,
+    `content_type_id` integer,
+    `object_id` longtext,
+    `object_repr` varchar(200) NOT NULL,
+    `action_flag` smallint UNSIGNED NOT NULL,
+    `change_message` longtext NOT NULL
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.007) CREATE TABLE `auth_permission` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` varchar(50) NOT NULL,
+    `content_type_id` integer NOT NULL,
+    `codename` varchar(100) NOT NULL,
+    UNIQUE (`content_type_id`, `codename`)
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.006) CREATE TABLE `auth_group_permissions` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `group_id` integer NOT NULL,
+    `permission_id` integer NOT NULL,
+    UNIQUE (`group_id`, `permission_id`)
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.011) ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `permission_id_refs_id_6ba0f519` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.013) CREATE TABLE `auth_group` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` varchar(80) NOT NULL UNIQUE
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.011) ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `group_id_refs_id_f4b32aac` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.008) CREATE TABLE `auth_user_groups` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `user_id` integer NOT NULL,
+    `group_id` integer NOT NULL,
+    UNIQUE (`user_id`, `group_id`)
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.011) ALTER TABLE `auth_user_groups` ADD CONSTRAINT `group_id_refs_id_274b862c` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.008) CREATE TABLE `auth_user_user_permissions` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `user_id` integer NOT NULL,
+    `permission_id` integer NOT NULL,
+    UNIQUE (`user_id`, `permission_id`)
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.015) ALTER TABLE `auth_user_user_permissions` ADD CONSTRAINT `permission_id_refs_id_35d9ac25` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.010) CREATE TABLE `auth_user` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `password` varchar(128) NOT NULL,
+    `last_login` datetime NOT NULL,
+    `is_superuser` bool NOT NULL,
+    `username` varchar(30) NOT NULL UNIQUE,
+    `first_name` varchar(30) NOT NULL,
+    `last_name` varchar(30) NOT NULL,
+    `email` varchar(75) NOT NULL,
+    `is_staff` bool NOT NULL,
+    `is_active` bool NOT NULL,
+    `date_joined` datetime NOT NULL
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.010) ALTER TABLE `django_admin_log` ADD CONSTRAINT `user_id_refs_id_c0d12874` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.011) ALTER TABLE `auth_user_groups` ADD CONSTRAINT `user_id_refs_id_40c41112` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.012) ALTER TABLE `auth_user_user_permissions` ADD CONSTRAINT `user_id_refs_id_4dc23c39` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.010) CREATE TABLE `django_content_type` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` varchar(100) NOT NULL,
+    `app_label` varchar(100) NOT NULL,
+    `model` varchar(100) NOT NULL,
+    UNIQUE (`app_label`, `model`)
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.019) ALTER TABLE `django_admin_log` ADD CONSTRAINT `content_type_id_refs_id_93d2d1f8` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.012) ALTER TABLE `auth_permission` ADD CONSTRAINT `content_type_id_refs_id_d043b34a` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.007) CREATE TABLE `django_session` (
+    `session_key` varchar(40) NOT NULL PRIMARY KEY,
+    `session_data` longtext NOT NULL,
+    `expire_date` datetime NOT NULL
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.007) CREATE TABLE `dailyAccess` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `ip` varchar(15) NOT NULL,
+    `method` varchar(10) NOT NULL,
+    `accessTime` datetime,
+    `path` longtext,
+    `status` integer NOT NULL,
+    `send_byte` integer NOT NULL,
+    `access_type` smallint NOT NULL,
+    `browse` varchar(255) NOT NULL,
+    `appName` varchar(50) NOT NULL,
+    `refe` longtext NOT NULL,
+    `access_record` longtext NOT NULL
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.008) CREATE TABLE `access_dailypath` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `path` varchar(255) NOT NULL,
+    `dailyType` smallint NOT NULL,
+    `SaveYesNo` smallint NOT NULL
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.007) CREATE TABLE `dailyAppCount` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` varchar(50) NOT NULL,
+    `count` integer NOT NULL
+)
+;; args=None
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'logentry'  AND `django_content_type`.`app_label` = 'admin' ); args=('logentry', u'admin')
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('log entry', 'admin', 'logentry'); args=[u'log entry', u'admin', 'logentry']
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (1) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1,)
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add log entry', 1, 'add_logentry'), ('Can change log entry', 1, 'change_logentry'), ('Can delete log entry', 1, 'delete_logentry'); args=(u'Can add log entry', 1, u'add_logentry', u'Can change log entry', 1, u'change_logentry', u'Can delete log entry', 1, u'delete_logentry')
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'  ORDER BY `django_content_type`.`name` ASC; args=(u'admin',)
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'permission'  AND `django_content_type`.`app_label` = 'auth' ); args=('permission', u'auth')
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('permission', 'auth', 'permission'); args=[u'permission', u'auth', 'permission']
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'group'  AND `django_content_type`.`app_label` = 'auth' ); args=('group', u'auth')
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('group', 'auth', 'group'); args=[u'group', u'auth', 'group']
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'user'  AND `django_content_type`.`app_label` = 'auth' ); args=('user', u'auth')
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('user', 'auth', 'user'); args=[u'user', u'auth', 'user']
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (2, 3, 4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2, 3, 4)
+[14/Mar/2015 10:46:31] DEBUG [django.db.backends:79] (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add permission', 2, 'add_permission'), ('Can change permission', 2, 'change_permission'), ('Can delete permission', 2, 'delete_permission'), ('Can add group', 3, 'add_group'), ('Can change group', 3, 'change_group'), ('Can delete group', 3, 'delete_group'), ('Can add user', 4, 'add_user'), ('Can change user', 4, 'change_user'), ('Can delete user', 4, 'delete_user'); args=(u'Can add permission', 2, u'add_permission', u'Can change permission', 2, u'change_permission', u'Can delete permission', 2, u'delete_permission', u'Can add group', 3, u'add_group', u'Can change group', 3, u'change_group', u'Can delete group', 3, u'delete_group', u'Can add user', 4, u'add_user', u'Can change user', 4, u'change_user', u'Can delete user', 4, u'delete_user')
+[14/Mar/2015 10:46:34] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'xu' ; args=(u'xu',)
+[14/Mar/2015 10:46:36] DEBUG [django.db.backends:79] (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'xu' ; args=(u'xu',)
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$12000$mO74wrJIucD5$VCL5sOOlcv1hqmxAULkasO3auWoeufDEtbp487T9/yc=', '2015-03-14 02:46:43', 1, 'xu', '', '', '', 1, 1, '2015-03-14 02:46:43'); args=[u'pbkdf2_sha256$12000$mO74wrJIucD5$VCL5sOOlcv1hqmxAULkasO3auWoeufDEtbp487T9/yc=', u'2015-03-14 02:46:43', True, u'xu', u'', u'', u'', True, True, u'2015-03-14 02:46:43']
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'  ORDER BY `django_content_type`.`name` ASC; args=(u'auth',)
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'contenttype'  AND `django_content_type`.`app_label` = 'contenttypes' ); args=('contenttype', u'contenttypes')
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('content type', 'contenttypes', 'contenttype'); args=[u'content type', u'contenttypes', 'contenttype']
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add content type', 5, 'add_contenttype'), ('Can change content type', 5, 'change_contenttype'), ('Can delete content type', 5, 'delete_contenttype'); args=(u'Can add content type', 5, u'add_contenttype', u'Can change content type', 5, u'change_contenttype', u'Can delete content type', 5, u'delete_contenttype')
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'  ORDER BY `django_content_type`.`name` ASC; args=(u'contenttypes',)
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'session'  AND `django_content_type`.`app_label` = 'sessions' ); args=('session', u'sessions')
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('session', 'sessions', 'session'); args=[u'session', u'sessions', 'session']
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add session', 6, 'add_session'), ('Can change session', 6, 'change_session'), ('Can delete session', 6, 'delete_session'); args=(u'Can add session', 6, u'add_session', u'Can change session', 6, u'change_session', u'Can delete session', 6, u'delete_session')
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'  ORDER BY `django_content_type`.`name` ASC; args=(u'sessions',)
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'dailyaccess'  AND `django_content_type`.`app_label` = 'access' ); args=('dailyaccess', u'access')
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('访问日志', 'access', 'dailyaccess'); args=[u'\u8bbf\u95ee\u65e5\u5fd7', u'access', 'dailyaccess']
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'dailypath'  AND `django_content_type`.`app_label` = 'access' ); args=('dailypath', u'access')
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('daily path', 'access', 'dailypath'); args=[u'daily path', u'access', 'dailypath']
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'dailyappcount'  AND `django_content_type`.`app_label` = 'access' ); args=('dailyappcount', u'access')
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('应用访问次数', 'access', 'dailyappcount'); args=[u'\u5e94\u7528\u8bbf\u95ee\u6b21\u6570', u'access', 'dailyappcount']
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (8, 9, 7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 9, 7)
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add 访问日志', 7, 'add_dailyaccess'), ('Can change 访问日志', 7, 'change_dailyaccess'), ('Can delete 访问日志', 7, 'delete_dailyaccess'), ('Can add daily path', 8, 'add_dailypath'), ('Can change daily path', 8, 'change_dailypath'), ('Can delete daily path', 8, 'delete_dailypath'), ('Can add 应用访问次数', 9, 'add_dailyappcount'), ('Can change 应用访问次数', 9, 'change_dailyappcount'), ('Can delete 应用访问次数', 9, 'delete_dailyappcount'); args=(u'Can add \u8bbf\u95ee\u65e5\u5fd7', 7, u'add_dailyaccess', u'Can change \u8bbf\u95ee\u65e5\u5fd7', 7, u'change_dailyaccess', u'Can delete \u8bbf\u95ee\u65e5\u5fd7', 7, u'delete_dailyaccess', u'Can add daily path', 8, u'add_dailypath', u'Can change daily path', 8, u'change_dailypath', u'Can delete daily path', 8, u'delete_dailypath', u'Can add \u5e94\u7528\u8bbf\u95ee\u6b21\u6570', 9, u'add_dailyappcount', u'Can change \u5e94\u7528\u8bbf\u95ee\u6b21\u6570', 9, u'change_dailyappcount', u'Can delete \u5e94\u7528\u8bbf\u95ee\u6b21\u6570', 9, u'delete_dailyappcount')
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'access'  ORDER BY `django_content_type`.`name` ASC; args=(u'access',)
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.012) CREATE INDEX `django_admin_log_6340c63c` ON `django_admin_log` (`user_id`);; args=None
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.020) CREATE INDEX `django_admin_log_37ef4eb4` ON `django_admin_log` (`content_type_id`);; args=None
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.012) CREATE INDEX `auth_permission_37ef4eb4` ON `auth_permission` (`content_type_id`);; args=None
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.011) CREATE INDEX `auth_group_permissions_5f412f9a` ON `auth_group_permissions` (`group_id`);; args=None
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.018) CREATE INDEX `auth_group_permissions_83d7f98b` ON `auth_group_permissions` (`permission_id`);; args=None
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.015) CREATE INDEX `auth_user_groups_6340c63c` ON `auth_user_groups` (`user_id`);; args=None
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.014) CREATE INDEX `auth_user_groups_5f412f9a` ON `auth_user_groups` (`group_id`);; args=None
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.017) CREATE INDEX `auth_user_user_permissions_6340c63c` ON `auth_user_user_permissions` (`user_id`);; args=None
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.014) CREATE INDEX `auth_user_user_permissions_83d7f98b` ON `auth_user_user_permissions` (`permission_id`);; args=None
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.013) CREATE INDEX `django_session_b7b81f0c` ON `django_session` (`expire_date`);; args=None
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SET foreign_key_checks=0; args=None
+[14/Mar/2015 10:46:43] DEBUG [django.db.backends:79] (0.000) SET foreign_key_checks=1; args=None

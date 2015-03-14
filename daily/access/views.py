@@ -13,7 +13,7 @@ from django.views.generic import View,TemplateView
 # Create your views here.
 import logging 
 logger = logging.getLogger(__name__)
-
+#统计相关页面的
 class dataView(View):
     
     def order_result(self,result,fields,number=10):
@@ -35,9 +35,9 @@ class dataView(View):
         order_browse = self.order_result(result,'browse')
         count = result.count()
         count_list = self.get_accessType_percent(result)
-        iphone_percent = int(count_list[0]) * 100 / count
-        android_percent = int(count_list[1]) * 100 / count
-        pc_percent = int(count_list[2]) * 100 / count
+        iphone_percent = int(count_list[0]) * 100.0 / count
+        android_percent = int(count_list[1]) * 100.0 / count
+        pc_percent = int(count_list[2]) * 100.0 / count
         context = {
             "order_ip" :order_ip,
             "order_path" : order_path,

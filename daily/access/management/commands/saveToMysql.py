@@ -9,7 +9,7 @@ import time, datetime
 import glob
 from access.models import DailyAccess,DailyAppCount
 import logging
-from django.utils import timezone
+from django.utils.timezone import utc
 logger = logging.getLogger(__name__)
 
 
@@ -135,7 +135,8 @@ class Command(BaseCommand):
             date_time = parame[3] + '-' + parame[2] + '-' + parame[1] + ' ' + parame[4]
             date_time_formate = datetime.datetime.strptime(date_time, '%Y-%b-%d %H:%M:%S')
             #修改时区问题
-            date_utc_time = timezone.make_aware(date_time_formate, timezone.get_current_timezone())
+            #date_utc_time = timezone.make_aware(date_time_formate, timezone.get_current_timezone())
+            date_utc_time = date_time_formate.utcnow().replace(tzinfo=utc)
             method = self.check_method(parame[5])
             browser = self.check_browser(parame)
             os_list = userSystems.findall(parame[10])
